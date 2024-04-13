@@ -26,26 +26,17 @@ https://git-scm.com/
 `Next`をクリック  
 ![](images/006.png)
 
-`Windows Explorer integration`のチェックを外す  
-※`Open Git Bash here`と`Open Git GUI here`のチェックも外れる
-![](images/007.png)
-
-`Next`をクリック  
+`Windows Explorer integration`のチェックを外して `Next`をクリック  
+※`Open Git Bash here`と`Open Git GUI here`のチェックも外れる  
 ![](images/008.png)
 
 `Next`をクリック  
 ![](images/009.png)
 
-`Use Visual Studio Code as Git's default editor`に変更  
-![](images/010.png)
-
-`Next`をクリック  
+`Use Visual Studio Code as Git's default editor`に変更して`Next`をクリック    
 ![](images/011.png)
 
-`Override the default branch name for new repositories`にチェックする  
-![](images/012.png)
-
-`Next`をクリック  
+`Override the default branch name for new repositories`にチェックして`Next`をクリック  
 ![](images/013.png)
 
 `Next`をクリック  
@@ -69,10 +60,7 @@ https://git-scm.com/
 `Next`をクリック  
 ![](images/021.png)
 
-`Enable symbolic links`にもチェックする  
-![](images/022.png)
-
-`Next`をクリック  
+`Enable symbolic links`にもチェックして`Next`をクリック  
 ![](images/023.png)
 
 `Next`をクリック  
@@ -81,10 +69,7 @@ https://git-scm.com/
 インストールが始まるので待つ  
 ![](images/025.png)
 
-`View Release Notes`のチェックを外す  
-![](images/026.png)
-
-`Finish`をクリック  
+`View Release Notes`のチェックを外して `Finish`をクリック  
 ![](images/027.png)
 
 ## インストールの確認
