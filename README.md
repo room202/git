@@ -84,7 +84,18 @@ https://git-scm.com/
 `View Release Notes`のチェックを外す  
 ![](images/026.png)
 
-`Finish`をクリック
+`Finish`をクリック  
 ![](images/027.png)
 
-以上でGitのインストールが完了
+## インストールの確認
+
+コマンドプロンプトを起動して、下記コマンドを実行
+
+```bash
+git --version
+```
+
+![](images/028.png)
+
+バージョンが表示されたらインストール成功  
+![](images/029.png)
