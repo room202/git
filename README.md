@@ -4,7 +4,7 @@
 
 ### ダウンロード
 
-下記サイトからGitをダウンロードする  
+下記サイトから Git をダウンロードする  
 https://git-scm.com/
 
 ![](images/001.png)
@@ -33,7 +33,7 @@ https://git-scm.com/
 `Next`をクリック  
 ![](images/009.png)
 
-`Use Visual Studio Code as Git's default editor`に変更して`Next`をクリック    
+`Use Visual Studio Code as Git's default editor`に変更して`Next`をクリック  
 ![](images/011.png)
 
 `Override the default branch name for new repositories`にチェックして`Next`をクリック  
@@ -84,3 +84,26 @@ git --version
 
 バージョンが表示されたらインストール成功  
 ![](images/029.png)
+
+## `Pull`した時に出るエラー対策 その１
+
+### エラー内容
+
+```
+Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+```
+
+### 対策方法
+
+SourceTree のメニューバーから`ツール`→`オプション`→`Git`タブ
+
+`Gitバージョン`の`System`がグレーアウト(選ばれている状態)であることを確認する  
+これが`Embedded`がグレーアウト(選ばれている状態)になっていると Push 時に上記エラーが発生するときがある
+
+![](images/100.png)
+
+### 原因の仮説
+
+Git をインストールするよりも前に、SourceTree をインストールすると、この設定になってしまう可能性があります。  
+Git をインストールしてから、SourceTree をインストールすれば、問題は発生しないのではないかと考えます。
