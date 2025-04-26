@@ -99,7 +99,7 @@ remote: Please see https://github.blog/2020-12-15-token-authentication-requireme
 SourceTree のメニューバーから`ツール`→`オプション`→`Git`タブ
 
 `Gitバージョン`の`System`がグレーアウト(選ばれている状態)であることを確認する  
-これが`Embedded`がグレーアウト(選ばれている状態)になっていると Push 時に上記エラーが発生するときがある
+これが`Embedded`がグレーアウト(選ばれている状態)になっていると Pull 時に上記エラーが発生する可能性があります。
 
 ![](images/100.png)
 
