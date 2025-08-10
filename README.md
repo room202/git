@@ -85,6 +85,52 @@ git --version
 バージョンが表示されたらインストール成功  
 ![](images/029.png)
 
+
+## PC内にあるソースコードをGitHub上で管理したい場合
+
+### 事前準備
+
+- [アクセストークンの準備](https://github.com/settings/tokens)  
+※ Personal access tokens (classic) を使用する
+
+- GitHub上にリモートリポジトリを作成
+    - 例) git-practice
+
+```bash
+cd GitHub管理したいフォルダに移動
+
+# Gitの初期化とファイルを管理に追加
+git init
+git add -A
+git commit -m "First Commit"
+
+# ブランチ名の確認
+git status
+
+# ブランチ名が「main」では無い場合、「main」に変更
+git branch -m main
+
+# リモートブランチとの紐づけ
+git remote add origin https://<ユーザー名>:<アクセストークン>@github.com/xxx/xxx.git
+git remote add origin https://room202:ghp_xxx@github.com/room202/git-practice.git
+
+# リモートブランチにプッシュ
+git push -u origin main
+```
+
+## GitHub上にあるソースコードをダウンロードしたい場合
+
+```bash
+cd GitHub管理したいフォルダに移動
+
+# クローン
+git clone https://<ユーザー名>:<アクセストークン>@github.com/xxx/xxx.git
+git clone https://room202:ghp_xxx@github.com/room202/git-practice.git
+
+```
+
+
+
 ## `Pull`した時に出るエラー対策 その１
 
 ### エラー内容
