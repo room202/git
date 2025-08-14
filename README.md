@@ -86,9 +86,11 @@ git --version
 ![](images/029.png)
 
 
-## PC内にあるソースコードをGitHub上で管理したい場合
+## PAT方式(Personal Access Tokens)
 
-### 事前準備
+### PC内にあるソースコードをGitHub上で管理したい場合
+
+#### 事前準備
 
 - [アクセストークンの準備](https://github.com/settings/tokens)  
 ※ Personal access tokens (classic) を使用する
@@ -118,7 +120,7 @@ git remote add origin https://room202:ghp_xxx@github.com/room202/git-practice.gi
 git push -u origin main
 ```
 
-## GitHub上にあるソースコードをダウンロードしたい場合
+### GitHub上にあるソースコードをダウンロードしたい場合
 
 ```bash
 cd GitHub管理したいフォルダに移動
@@ -126,10 +128,78 @@ cd GitHub管理したいフォルダに移動
 # クローン
 git clone https://<ユーザー名>:<アクセストークン>@github.com/xxx/xxx.git
 git clone https://room202:ghp_xxx@github.com/room202/git-practice.git
-
 ```
 
+## 公開鍵方式
 
+`Git Bash`で実行すること
+
+### 1. SSH Key(鍵)を生成する
+
+```bash
+ssh-keygen -t ed25519 -C "メアド"
+```
+
+### 2. SSH Key(鍵)の保存先を確認
+
+確認できたら`Enter`
+
+```bash
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/%USERNAME%/.ssh/id_ed25519):
+```
+
+### 3. パスフレーズ(パスワード)を入力する
+
+確認のため２回入力する
+
+```bash
+Enter passphrase for "/c/Users/%USERNAME%/.ssh/id_ed25519" (empty for no passphrase):
+Enter same passphrase again:
+```
+
+### 4. SSH Key(鍵)をGitHubに登録
+
+SSH Key(公開鍵)をクリップボードにコピーする
+
+```bash
+# Windows
+clip < /c/Users/%USERNAME%/.ssh/id_ed25519.pub
+
+# macOS
+pbcopy < /Users/%USERNAME%/.ssh/id_ed25519.pub
+```
+
+### 5. GitHubの設定画面を表示する
+
+`Settings`→`SSH and GPG Keys`→`New SSH key`
+
+### 6. 公開鍵を貼り付ける
+
+- Title : 任意
+- Key type : Authentication Key
+- Key : 公開鍵をペースト
+
+上記を記入して`Add SSH key`をクリック
+
+### 7. 確認用のコマンドを入力して確認
+
+```bash
+ssh -T git@github.com
+# Are you sure you want to continue connecting (yes/no/[fingerprint])? yes ←入力
+```
+
+### 8. パスフレーズ(パスワード)を入力する
+
+```bash
+# パスフレーズ(パスワード)を入力する
+Enter passphrase for key '/c/Users/%USERNAME%/.ssh/id_ed25519':
+
+# 下記が表示されたら成功
+You've successfully authenticated, 
+```
+
+失敗したら`Permission denied`と表示される
 
 ## `Pull`した時に出るエラー対策 その１
 
