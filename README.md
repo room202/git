@@ -86,9 +86,9 @@ git --version
 ![](images/029.png)
 
 
-## PAT方式(Personal Access Tokens)
+## GitHubとの連携
 
-### PC内にあるソースコードをGitHub上で管理したい場合
+### PAT方式(Personal Access Tokens)
 
 #### 事前準備
 
@@ -97,6 +97,9 @@ git --version
 
 - GitHub上にリモートリポジトリを作成
     - 例) git-practice
+
+
+#### PC内にあるソースコードをGitHub上で管理したい場合
 
 ```bash
 cd GitHub管理したいフォルダに移動
@@ -120,7 +123,7 @@ git remote add origin https://room202:ghp_xxx@github.com/room202/git-practice.gi
 git push -u origin main
 ```
 
-### GitHub上にあるソースコードをダウンロードしたい場合
+#### GitHub上にあるソースコードをダウンロードしたい場合
 
 ```bash
 cd GitHub管理したいフォルダに移動
@@ -130,17 +133,17 @@ git clone https://<ユーザー名>:<アクセストークン>@github.com/xxx/xx
 git clone https://room202:ghp_xxx@github.com/room202/git-practice.git
 ```
 
-## 公開鍵方式
+### 公開鍵方式
 
 `Git Bash`で実行すること
 
-### 1. SSH Key(鍵)を生成する
+#### 1. SSH Key(鍵)を生成する
 
 ```bash
 ssh-keygen -t ed25519 -C "メアド"
 ```
 
-### 2. SSH Key(鍵)の保存先を確認
+#### 2. SSH Key(鍵)の保存先を確認
 
 確認できたら`Enter`
 
@@ -149,7 +152,7 @@ Generating public/private ed25519 key pair.
 Enter file in which to save the key (/c/Users/%USERNAME%/.ssh/id_ed25519):
 ```
 
-### 3. パスフレーズ(パスワード)を入力する
+#### 3. パスフレーズ(パスワード)を入力する
 
 確認のため２回入力する
 
@@ -158,7 +161,7 @@ Enter passphrase for "/c/Users/%USERNAME%/.ssh/id_ed25519" (empty for no passphr
 Enter same passphrase again:
 ```
 
-### 4. SSH Key(鍵)をGitHubに登録
+#### 4. SSH Key(鍵)をGitHubに登録
 
 SSH Key(公開鍵)をクリップボードにコピーする
 
@@ -170,36 +173,46 @@ clip < /c/Users/%USERNAME%/.ssh/id_ed25519.pub
 pbcopy < /Users/%USERNAME%/.ssh/id_ed25519.pub
 ```
 
-### 5. GitHubの設定画面を表示する
+#### 5. GitHubの設定画面を表示する
 
-`Settings`→`SSH and GPG Keys`→`New SSH key`
+`Settings` → `SSH and GPG Keys` → [New SSH key](https://github.com/settings/keys)
 
-### 6. 公開鍵を貼り付ける
+#### 6. 公開鍵を貼り付ける
 
-- Title : 任意
+- Title : わかりやすいタイトル (ex. My Key)
 - Key type : Authentication Key
 - Key : 公開鍵をペースト
 
 上記を記入して`Add SSH key`をクリック
 
-### 7. 確認用のコマンドを入力して確認
+#### 7. 確認用のコマンドを入力して確認
 
 ```bash
 ssh -T git@github.com
-# Are you sure you want to continue connecting (yes/no/[fingerprint])? yes ←入力
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes  # ←「yes」と入力する
 ```
 
-### 8. パスフレーズ(パスワード)を入力する
+#### 8. パスフレーズ(パスワード)を入力する
 
 ```bash
-# パスフレーズ(パスワード)を入力する
-Enter passphrase for key '/c/Users/%USERNAME%/.ssh/id_ed25519':
+Enter passphrase for key '/c/Users/%USERNAME%/.ssh/id_ed25519': # ← パスフレーズ(パスワード)を入力する
 
 # 下記が表示されたら成功
+# 失敗したら`Permission denied`と表示される
 You've successfully authenticated, 
 ```
 
-失敗したら`Permission denied`と表示される
+## コマンドテクニック
+
+ファイルを開く
+
+```bash
+# Windows
+start ファイル名
+
+# macOS
+open ファイル名
+```
 
 ## `Pull`した時に出るエラー対策 その１
 
